@@ -1,0 +1,13 @@
+---
+# tasks to install rflint
+- name: update pip
+  pip:
+    name: pip
+    extra_args: -U
+    executable: pip3
+
+- name: install robotframework-lint from git repository
+  pip:
+    name: git+https://github.com/boakley/robotframework-lint.git
+    editable: false
+

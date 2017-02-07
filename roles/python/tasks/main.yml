@@ -1,0 +1,18 @@
+---
+# tasks to install python
+- name: upgrade all packages
+  yum:
+    name: '*'
+    state: latest
+
+- name: install epel-release and git
+  yum: name={{item}} state=latest
+  with_items:
+    - epel-release
+    - git
+
+- name: install python34 and python34-pip
+  yum: name={{item}} state=latest
+  with_items:
+    - python34
+    - python34-pip
