@@ -1,0 +1,4 @@
+---
+tests: /vagrant/test
+ignore_rules: LineTooLong
+result_file: /vagrant/result.txt

@@ -11,3 +11,7 @@
     name: git+https://github.com/boakley/robotframework-lint.git
     editable: false
 
+- name: static analysis of robotframework files
+  shell: rflint --ignore {{ ignore_rules }} {{ tests }} ">" {{ result_file }}
+  register: command_result
+  failed_when: "'FAILED' in command_result.stderr"
