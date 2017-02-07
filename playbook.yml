@@ -7,25 +7,17 @@
       name: '*'
       state: latest
 
-  - name: install epel-release
-    yum:
-      name: epel-release
-      state: latest
+  - name: install epel-release and git
+    yum: name={{item}} state=latest
+    with_items:
+      - epel-release
+      - git
 
-  - name: install git
-    yum:
-      name: git
-      state: latest
-
-  - name: install python34
-    yum:
-      name: python34
-      state: latest
-
-  - name: install python34-pip
-    yum:
-      name: python34-pip
-      state: latest
+  - name: install python34 and python34-pip
+    yum: name={{item}} state=latest
+    with_items:
+      - python34
+      - python34-pip
 
   - name: update pip
     pip:
