@@ -1,17 +1,3 @@
 ---
-# tasks to install rflint
-- name: update pip
-  pip:
-    name: pip
-    extra_args: -U
-    executable: pip3
-
-- name: install robotframework-lint from git repository
-  pip:
-    name: git+https://github.com/boakley/robotframework-lint.git
-    editable: false
-
-- name: static analysis of robotframework files
-  shell: rflint --ignore {{ ignore_rules }} {{ tests }} ">" {{ result_file }}
-  register: command_result
-  failed_when: "'FAILED' in command_result.stderr"
+- include: install.yml
+- include: run.yml

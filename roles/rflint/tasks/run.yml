@@ -1,0 +1,6 @@
+---
+# task to run rflint
+- name: run rflint command
+  shell: rflint --ignore {{ ignore_rules }} "{{ tests }}" > {{ result_file }}
+  register: command_result
+  failed_when: "'FAILED' in command_result.stderr"
